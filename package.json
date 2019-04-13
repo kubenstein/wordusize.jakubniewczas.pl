@@ -1,0 +1,33 @@
+{
+  "name": "wordusize",
+  "author": "Jakub Niewczas",
+  "version": "0.0.1",
+  "description": "A weekend self-hackathon to experiment with puppeteer. Count occurrence of a given word on a given url",
+  "license": "MIT",
+  "engines": {
+    "node": "11.5.0",
+    "yarn": "1.15.2"
+  },
+  "scripts": {
+    "dev:lib:test:watch": "mocha-webpack --watch --webpack-config ./src/webpack-lib.config.js ./src/lib/setup-spec.js './src/lib/**/*spec.js' --colors"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
+    "dirty-chai": "^2.0.1",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-mocha": "^5.2.1",
+    "mocha": "^4.1.0",
+    "mocha-webpack": "^2.0.0-beta.0",
+    "webpack": "~4.29.x",
+    "webpack-cli": "^3.2.3"
+  }
+}
