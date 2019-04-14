@@ -12,7 +12,10 @@
     "dev:backend": "DATABASE_URL=sqlite:./db/data/dev.db PORT=3000 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
     "dev:db:migrate": "DATABASE_URL=sqlite:./db/data/dev.db node ./scripts/db-migrate.js",
     "test:db:migrate": "DATABASE_URL=sqlite:./db/data/test.db node ./scripts/db-migrate.js",
-    "test:lib:watch": "DATABASE_URL=sqlite:./db/data/test.db mocha-webpack --watch --timeout 10000 --webpack-config ./src/webpack-lib.config.js ./src/spec/setup.js './src/lib/**/*spec.js' --colors"
+    "test:lib:watch": "DATABASE_URL=sqlite:./db/data/test.db mocha-webpack --watch --timeout 10000 --webpack-config ./src/webpack-lib.config.js ./src/spec/setup.js './src/lib/**/*spec.js' --colors",
+    "prod:build:backend": "NODE_ENV=production webpack -p --config ./src/webpack-backend.config.js",
+    "heroku-postbuild": "yarn run prod:build:backend",
+    "server": "pm2 start ./dist/bundled-server-runner.js --no-daemon"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -38,7 +41,11 @@
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "bugsnag": "^2.4.3",
     "express": "^4.16.4",
+    "pg": "^7.9.0",
+    "pg-hstore": "^2.3.2",
+    "pm2": "^3.5.0",
     "puppeteer": "^1.14.0",
     "sequelize": "^5.3.5",
     "umzug": "^2.2.0"

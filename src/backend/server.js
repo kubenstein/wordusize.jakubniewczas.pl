@@ -1,5 +1,8 @@
 import express from 'express';
+import bugsnag from 'bugsnag';
 import countWordOnPageWorkflow from 'lib/workflows/count-word-on-page';
+
+bugsnag.register(process.env.BUGSNAG_API_KEY);
 
 export default class Server {
   constructor(params) {
@@ -10,6 +13,7 @@ export default class Server {
 
   start() {
     this.app = express();
+    this.app.use(bugsnag.requestHandler);
     this.server = this.app.listen(this.serverPort, '0.0.0.0');
 
     this.app.get('/wordscount', (req, res) => {
