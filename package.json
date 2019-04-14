@@ -9,8 +9,10 @@
     "yarn": "1.15.2"
   },
   "scripts": {
-    "dev:backend": "PORT=3000 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
-    "dev:lib:test:watch": "mocha-webpack --watch --timeout 10000 --webpack-config ./src/webpack-lib.config.js ./src/spec/setup.js './src/lib/**/*spec.js' --colors"
+    "dev:backend": "DATABASE_URL=sqlite:./db/data/dev.db PORT=3000 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
+    "dev:db:migrate": "DATABASE_URL=sqlite:./db/data/dev.db node ./scripts/db-migrate.js",
+    "test:db:migrate": "DATABASE_URL=sqlite:./db/data/test.db node ./scripts/db-migrate.js",
+    "test:lib:watch": "DATABASE_URL=sqlite:./db/data/test.db mocha-webpack --watch --timeout 10000 --webpack-config ./src/webpack-lib.config.js ./src/spec/setup.js './src/lib/**/*spec.js' --colors"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -31,11 +33,14 @@
     "nodemon-webpack-plugin": "^4.0.8",
     "sinon": "^7.3.1",
     "sinon-chai": "^3.3.0",
+    "sqlite3": "^4.0.6",
     "webpack": "~4.29.x",
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
     "express": "^4.16.4",
-    "puppeteer": "^1.14.0"
+    "puppeteer": "^1.14.0",
+    "sequelize": "^5.3.5",
+    "umzug": "^2.2.0"
   }
 }

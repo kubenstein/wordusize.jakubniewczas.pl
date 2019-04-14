@@ -2,7 +2,7 @@ import SearchResult from '.';
 import { add, find } from './repository';
 
 describe('SearchResultRepository', () => {
-  const searchResult = new SearchResult({
+  const searchResult = SearchResult.build({
     word: 'javascript',
     url: 'http://www.jakubniewczas.com/',
     count: 9001,

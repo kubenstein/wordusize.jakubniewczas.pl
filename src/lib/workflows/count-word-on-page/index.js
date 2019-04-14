@@ -13,7 +13,7 @@ const countWordOnPageWorkflow = async (word, url, persist = add) => {
   if (result) return result.count;
 
   const count = wordCount(word, await scrape(url));
-  result = new SearchResult({ word, url, count });
+  result = SearchResult.build({ word, url, count });
   result = await persist(result);
   return result.count;
 };

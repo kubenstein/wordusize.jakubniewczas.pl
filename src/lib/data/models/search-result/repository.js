@@ -1,16 +1,7 @@
-let db = [];
+import SearchResult from '.';
 
-export const find = ({ word, url }) => new Promise((resolve, _reject) => {
-  const result = db.filter(s => s.word === word && s.url === url)[0] || null;
-  resolve(result);
-});
+export const find = ({ word, url }) => SearchResult.findOne({ where: { word, url } });
 
-export const add = searchResult => new Promise((resolve, _reject) => {
-  db.push(searchResult);
-  resolve(searchResult);
-});
+export const add = searchResult => searchResult.save();
 
-export const clear = () => new Promise((resolve, _reject) => {
-  db = [];
-  resolve();
-});
+export const clear = () => SearchResult.destroy({ where: {}, truncate: true });
