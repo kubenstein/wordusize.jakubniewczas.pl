@@ -29,5 +29,8 @@
     "mocha-webpack": "^2.0.0-beta.0",
     "webpack": "~4.29.x",
     "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "puppeteer": "^1.14.0"
   }
 }
