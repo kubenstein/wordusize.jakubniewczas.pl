@@ -3,13 +3,13 @@ import { find, add } from 'lib/data/models/search-result/repository';
 import scrape from 'lib/scrape';
 import wordCount from 'lib/word-count';
 
-const countWordOnPageWorkflow = async (word, url) => {
+const countWordOnPageWorkflow = async (word, url, persist = add) => {
   let result = await find({ word, url });
   if (result) return result.count;
 
   const count = wordCount(word, await scrape(url));
   result = new SearchResult({ word, url, count });
-  result = await add(result);
+  result = await persist(result);
   return result.count;
 };
 
