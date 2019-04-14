@@ -9,7 +9,7 @@
     "yarn": "1.15.2"
   },
   "scripts": {
-    "dev:lib:test:watch": "mocha-webpack --watch --timeout 10000 --webpack-config ./src/webpack-lib.config.js ./src/lib/setup-spec.js './src/lib/**/*spec.js' --colors"
+    "dev:lib:test:watch": "mocha-webpack --watch --timeout 10000 --webpack-config ./src/webpack-lib.config.js ./src/spec/setup.js './src/lib/**/*spec.js' --colors"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
