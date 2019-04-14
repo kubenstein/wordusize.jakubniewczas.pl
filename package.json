@@ -9,6 +9,7 @@
     "yarn": "1.15.2"
   },
   "scripts": {
+    "dev:backend": "PORT=3000 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
     "dev:lib:test:watch": "mocha-webpack --watch --timeout 10000 --webpack-config ./src/webpack-lib.config.js ./src/spec/setup.js './src/lib/**/*spec.js' --colors"
   },
   "devDependencies": {
@@ -27,12 +28,14 @@
     "eslint-plugin-mocha": "^5.2.1",
     "mocha": "^4.1.0",
     "mocha-webpack": "^2.0.0-beta.0",
+    "nodemon-webpack-plugin": "^4.0.8",
     "sinon": "^7.3.1",
     "sinon-chai": "^3.3.0",
     "webpack": "~4.29.x",
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "express": "^4.16.4",
     "puppeteer": "^1.14.0"
   }
 }
