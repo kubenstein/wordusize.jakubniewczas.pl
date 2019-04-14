@@ -1,9 +1,8 @@
 const wordCount = (word, text) => (
   text
     .toLowerCase()
-    .split(' ')
-    .filter(w => w === word)
-    .length
+    .split(word)
+    .length - 1
 );
 
 export default wordCount;
