@@ -21,4 +21,14 @@ describe('countWordOnPageWorkflow', () => {
     await countWordOnPageWorkflow('the', url, customPersisterer);
     expect(customPersisterer).to.have.been.calledOnce();
   });
+
+  it('returns an error when params are not valid', async () => {
+    try { await countWordOnPageWorkflow('', ''); } catch (err) {
+      expect(err.message).to.be.eq("'word' param cant be empty,'url' param cant be empty");
+    }
+
+    try { await countWordOnPageWorkflow(undefined, undefined); } catch (err) {
+      expect(err.message).to.be.eq("'word' param cant be empty,'url' param cant be empty");
+    }
+  });
 });
