@@ -6,6 +6,6 @@ export const find = ({ word, url }) => new Promise((resolve, _reject) => {
 });
 
 export const add = searchResult => new Promise((resolve, _reject) => {
-  const result = db.push(searchResult);
-  resolve(result);
+  db.push(searchResult);
+  resolve(searchResult);
 });
