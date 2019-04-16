@@ -6,6 +6,7 @@ describe('wordCount()', () => {
     expect(wordCount('the', text)).to.be.eq(2);
     expect(wordCount('fox', text)).to.be.eq(1);
     expect(wordCount('404', text)).to.be.eq(0);
+    expect(wordCount('he', text)).to.be.eq(0);
   });
 
   it('returns 0 for an empty text', () => {
